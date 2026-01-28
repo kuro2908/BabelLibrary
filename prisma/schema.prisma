@@ -1,0 +1,108 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum Role {
+  USER
+  MANAGER
+  ADMIN
+}
+
+enum BookStatus {
+  PUBLIC
+  HIDDEN_BY_USER
+  HIDDEN_BY_STAFF
+}
+
+enum TicketStatus {
+  OPEN
+  APPROVED
+  REJECTED
+}
+
+model User {
+  id              Int      @id @default(autoincrement())
+  email           String   @unique
+  password        String
+  name            String?
+  role            Role     @default(USER)
+  themePreference String   @default("light")
+  bio             String?  @db.Text
+  avatarUrl       String?
+  createdAt       DateTime @default(now())
+
+  books           Book[]
+  series          Series[]
+  reports         Report[]
+  tickets         Ticket[]
+  handledTickets  Ticket[] @relation("HandlerRelation")
+}
+
+model Author {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  bio         String?  @db.Text
+  books       Book[]
+}
+
+model Series {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?  @db.Text
+  creatorId   Int
+  creator     User     @relation(fields: [creatorId], references: [id])
+  books       Book[]
+}
+
+model Book {
+  id          String     @id @default(uuid())
+  title       String
+  description String?    @db.Text
+  coverUrl    String?
+  r2Key       String
+  fileType    String     // "PDF" or "EPUB"
+  status      BookStatus @default(PUBLIC)
+  
+  uploaderId  Int
+  uploader    User       @relation(fields: [uploaderId], references: [id])
+  authorId    Int
+  author      Author     @relation(fields: [authorId], references: [id])
+  seriesId    Int?
+  series      Series?    @relation(fields: [seriesId], references: [id])
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  reports     Report[]
+  tickets     Ticket[]
+}
+
+model Report {
+  id          Int      @id @default(autoincrement())
+  bookId      String
+  book        Book     @relation(fields: [bookId], references: [id])
+  reporterId  Int
+  reporter    User     @relation(fields: [reporterId], references: [id])
+  reason      String   @db.Text
+  status      String   @default("PENDING") 
+  createdAt   DateTime @default(now())
+}
+
+model Ticket {
+  id          Int          @id @default(autoincrement())
+  bookId      String
+  book        Book         @relation(fields: [bookId], references: [id])
+  userId      Int
+  user        User         @relation(fields: [userId], references: [id])
+  message     String       @db.Text
+  status      TicketStatus @default(OPEN)
+  handlerId   Int?
+  handler     User?        @relation("HandlerRelation", fields: [handlerId], references: [id])
+  createdAt   DateTime     @default(now())
+}
