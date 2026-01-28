@@ -20,8 +20,8 @@
 - [x] **2.3** Định nghĩa 4 theme: Light, Dark, Sepia, Midnight
 - [x] **2.4** Cập nhật globals.css với CSS Variables
 - [x] **2.5** Tạo ThemeSwitcher component
-- [ ] **2.6** Thiết kế Layout chính (Header, Navigation, Footer)
-- [ ] **2.7** Responsive Design cho mobile/tablet
+- [x] **2.6** Thiết kế Layout chính (Header, Navigation, Footer)
+- [x] **2.7** Responsive Design cho mobile/tablet
 
 ---
 

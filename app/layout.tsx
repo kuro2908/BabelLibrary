@@ -31,7 +31,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="light"
-          themes={['light', 'dark', 'sepia', 'high-contrast']}
+          themes={['light', 'dark', 'sepia', 'coffee']}
         >
           {children}
         </ThemeProvider>

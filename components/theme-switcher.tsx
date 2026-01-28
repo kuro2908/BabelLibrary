@@ -18,7 +18,7 @@ export function ThemeSwitcher() {
 
     return (
         <div className="fixed top-4 right-4 z-50 flex gap-2 p-2 rounded-lg bg-foreground/10 backdrop-blur-sm">
-            {['light', 'dark', 'sepia', 'high-contrast'].map((t) => (
+            {['light', 'dark', 'sepia', 'coffee'].map((t) => (
                 <button
                     key={t}
                     onClick={() => setTheme(t)}
@@ -27,7 +27,7 @@ export function ThemeSwitcher() {
                         : 'bg-background text-foreground hover:bg-foreground/20'
                         }`}
                 >
-                    {t === 'high-contrast' ? 'High Contrast' : t.charAt(0).toUpperCase() + t.slice(1)}
+                    {t.charAt(0).toUpperCase() + t.slice(1)}
                 </button>
             ))}
         </div>

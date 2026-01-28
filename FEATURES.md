@@ -6,7 +6,7 @@
 
 ## 📚 Core Reading Features
 
-- [x] Theme System (Light, Dark, Sepia, Midnight)
+- [x] Theme System (Light, Dark, Sepia, Coffee)
 - [ ] Book Reader
   - [ ] EPUB.js integration for EPUB files
   - [ ] PDF.js integration for PDF files
@@ -35,10 +35,10 @@
 
 ## 🔍 Discovery & Search
 
-- [ ] Homepage
-  - [ ] Featured books carousel
-  - [ ] New releases section
-  - [ ] Popular books section
+- [x] Homepage
+  - [x] Featured books carousel
+  - [x] New releases section
+  - [x] Popular books section
   - [ ] Recommended books (based on user)
 - [ ] Search
   - [ ] Full-text search by title
@@ -192,14 +192,14 @@
   - [x] Light theme
   - [x] Dark theme
   - [x] Sepia theme
-  - [x] Midnight theme
+  - [x] Coffee theme
   - [x] Smooth transitions
   - [x] Persistent theme preference
-- [ ] Responsive Design
-  - [ ] Mobile-friendly layouts
-  - [ ] Tablet optimization
-  - [ ] Desktop optimization
-  - [ ] Touch-friendly controls
+- [x] Responsive Design
+  - [x] Mobile-friendly layouts
+  - [x] Tablet optimization
+  - [x] Desktop optimization
+  - [x] Touch-friendly controls
 - [ ] Accessibility
   - [ ] Keyboard navigation
   - [ ] Screen reader support
@@ -208,7 +208,7 @@
 - [ ] Components
   - [x] ThemeProvider
   - [x] ThemeSwitcher
-  - [ ] Header/Navigation
+  - [x] Header/Navigation
   - [ ] Footer
   - [ ] Book Card
   - [ ] Search Bar

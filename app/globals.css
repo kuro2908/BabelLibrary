@@ -19,10 +19,10 @@ html[data-theme="sepia"] {
   --foreground: #5b4636;
 }
 
-/* High Contrast Theme */
-html[data-theme="high-contrast"] {
-  --background: #000000;
-  --foreground: #ffff00;
+/* Coffee Theme (Old Book Vibe) */
+html[data-theme="coffee"] {
+  --background: #2c241b;
+  --foreground: #e0d2b4;
 }
 
 @theme inline {
